@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link
+            href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+            rel="stylesheet" id="bootstrap-css">
+    <script
+            src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script
+            src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link href="../../css/main.css" type="text/css" rel="stylesheet"/>
+    <link href="../../tema10/form.css" type="text/css" rel="stylesheet"/>
+
+    <title>Mantenimiento de usuarios</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .revisar-perfil,
+        .revisar-perfil * {
+            box-sizing: border-box;
+        }
+        .revisar-perfil {
+            background: #ffffff;
+            width: 1728px;
+            height: 1117px;
+            position: relative;
+            overflow-y: auto;
+        }
+        .group-3 {
+            position: absolute;
+            inset: 0;
+        }
+        .navbar {
+            background: rgba(37, 44, 97, 0.15);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            justify-content: flex-start;
+            width: 300px;
+            height: 1117px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            overflow: hidden;
+        }
+        .home {
+            border-radius: 2px;
+            border-style: solid;
+            border-color: #013968;
+            border-width: 0px 0px 2px 0px;
+            padding: 20px 115px 20px 115px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            width: 225px;
+            height: 57px;
+            position: relative;
+            overflow: hidden;
+        }
+        .home2 {
+            flex-shrink: 0;
+            position: relative;
+            overflow: visible;
+        }
+        .frame-3 {
+            background: rgba(37, 44, 97, 0.8);
+            border-radius: 10px;
+            flex-shrink: 0;
+            width: 225px;
+            height: 57px;
+            position: relative;
+            overflow: hidden;
+        }
+        .proyectos-y-programas {
+            color: #ffffff;
+            text-align: center;
+            font: 600 14px/100% "Montserrat", sans-serif;
+            position: absolute;
+            left: calc(50% - 55.5px);
+            top: calc(50% - 14.5px);
+        }
+        .frame-5 {
+            background: rgba(37, 44, 97, 0.15);
+            border-radius: 10px;
+            flex-shrink: 0;
+            width: 225px;
+            height: 57px;
+            position: relative;
+            overflow: hidden;
+        }
+        .reporte {
+            color: #000000;
+            text-align: center;
+            font: 600 14px/100% "Montserrat", sans-serif;
+            position: absolute;
+            left: calc(50% - 35.5px);
+            top: calc(50% - 7.5px);
+        }
+        .head {
+            background: rgba(37, 44, 97, 0.08);
+            padding: 10px 20px 10px 20px;
+            display: flex;
+            flex-direction: row;
+            gap: 324px;
+            align-items: flex-start;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+            width: 1428px;
+            height: 77px;
+            position: absolute;
+            left: 300px;
+            top: 0px;
+            overflow: hidden;
+        }
+        .logo {
+            flex-shrink: 0;
+            width: 201px;
+            height: 55px;
+            position: relative;
+            overflow: hidden;
+        }
+        .logo-upeu-2022-dark-mesa-de-trabajo-1-980-x-236-1 {
+            width: 174px;
+            height: 43px;
+            position: absolute;
+            left: 14px;
+            top: 6px;
+        }
+        .session {
+            background: rgba(37, 44, 97, 0.15);
+            border-radius: 15px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            position: relative;
+        }
+        .icon-person {
+            flex-shrink: 0;
+            position: relative;
+            overflow: visible;
+        }
+        .body {
+            background: #ffffff;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            justify-content: flex-start;
+            width: 1428px;
+            height: 1040px;
+            position: absolute;
+            left: 300px;
+            top: 77px;
+            overflow: hidden;
+        }
+        .frame-36 {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-between;
+            align-self: stretch;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .component-1 {
+            display: flex;
+            flex-direction: row;
+            gap: 0px;
+            align-items: flex-start;
+            justify-content: flex-start;
+            flex-shrink: 0;
+            position: relative;
+        }
+        .button-crear {
+            background: rgba(17, 30, 133, 0.88);
+            border-radius: 5px;
+            padding: 13px 22px 13px 22px;
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            width: 140px;
+            height: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        .add-outline {
+            flex-shrink: 0;
+            position: relative;
+            overflow: visible;
+        }
+        .crear {
+            color: #ffffff;
+            text-align: left;
+            font: 600 13px/100% "Montserrat", sans-serif;
+            position: relative;
+            width: 51px;
+            height: 14px;
+        }
+        .chebron-abajo {
+            flex-shrink: 0;
+            position: relative;
+            overflow: visible;
+        }
+        .frame-2 {
+            background: rgba(37, 44, 97, 0.15);
+            border-radius: 5px;
+            padding: 11px 14px 11px 14px;
+            display: flex;
+            flex-direction: row;
+            gap: 24px;
+            align-items: flex-start;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .frame-7 {
+            background: rgba(37, 44, 97, 0.15);
+            border-radius: 10px;
+            padding: 0px 3px 0px 3px;
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            width: 147px;
+            height: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+        .filter {
+            flex-shrink: 0;
+            position: relative;
+            overflow: visible;
+        }
+        .organizar {
+            color: rgba(0, 0, 0, 0.29);
+            text-align: left;
+            font: 600 14px/100% "Montserrat", sans-serif;
+            position: relative;
+        }
+        .vector7 {
+            flex-shrink: 0;
+            position: relative;
+            overflow: visible;
+        }
+        .frame-52 {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 0px 3px 0px 3px;
+            display: flex;
+            flex-direction: row;
+            gap: 39px;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            width: 147px;
+            height: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+        .search-sharp {
+            flex-shrink: 0;
+            position: relative;
+            overflow: visible;
+        }
+        .b-squeda {
+            color: rgba(0, 0, 0, 0.29);
+            text-align: left;
+            font: 600 14px/100% "Montserrat", sans-serif;
+            position: relative;
+        }
+        .contenido {
+            background: #ffffff;
+            border-style: solid;
+            border-color: rgba(37, 44, 97, 0.15);
+            border-width: 1px 0px 0px 0px;
+            padding: 10px 10px 21px 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 0px;
+            align-items: center;
+            justify-content: flex-start;
+            align-self: stretch;
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+        .h-1 {
+            padding: 20px 0px 20px 0px;
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            align-items: flex-start;
+            justify-content: flex-start;
+            align-self: stretch;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .mi-portafolio {
+            color: #000000;
+            text-align: left;
+            font: 600 20px/100% "Montserrat", sans-serif;
+            position: relative;
+        }
+        .lista {
+            border-radius: 10px;
+            border-style: solid;
+            border-color: rgba(37, 44, 97, 0.15);
+            border-width: 1px;
+            display: flex;
+            flex-direction: column;
+            gap: 0px;
+            align-items: flex-start;
+            justify-content: flex-start;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .lista-encabezado {
+            background: rgba(255, 255, 255, 0.15);
+            border-style: solid;
+            border-color: rgba(37, 44, 97, 0.15);
+            border-width: 0px 0px 2px 0px;
+            padding: 20px 30px 20px 30px;
+            display: flex;
+            flex-direction: row;
+            gap: 35px;
+            align-items: flex-start;
+            justify-content: flex-start;
+            align-self: stretch;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        . {
+            color: #000000;
+            text-align: left;
+            font: 300 15px/100% "Montserrat", sans-serif;
+            position: relative;
+        }
+        .file-tray-full {
+            flex-shrink: 0;
+            position: relative;
+            overflow: visible;
+        }
+        .nombre {
+            color: #000000;
+            text-align: left;
+            font: 300 15px/100% "Montserrat", sans-serif;
+            position: relative;
+            width: 160px;
+        }
+        .tipo {
+            color: #000000;
+            text-align: left;
+            font: 300 15px/100% "Montserrat", sans-serif;
+            position: relative;
+            width: 79px;
+        }
+        .estado {
+            color: #000000;
+            text-align: center;
+            font: 300 15px/100% "Montserrat", sans-serif;
+            position: relative;
+            width: 96px;
+        }
+        .opciones {
+            color: #000000;
+            text-align: center;
+            font: 300 15px/100% "Montserrat", sans-serif;
+            position: relative;
+            flex: 1;
+        }
+        .lista-cuerpo {
+            background: rgba(255, 255, 255, 0.15);
+            border-style: solid;
+            border-color: rgba(37, 44, 97, 0.15);
+            border-width: 0px 0px 1px 0px;
+            padding: 20px 30px 20px 30px;
+            display: flex;
+            flex-direction: row;
+            gap: 35px;
+            align-items: center;
+            justify-content: flex-start;
+            align-self: stretch;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        ._9 {
+            color: #000000;
+            text-align: left;
+            font: 300 15px/100% "Montserrat", sans-serif;
+            position: relative;
+        }
+        .briefcase-outline {
+            flex-shrink: 0;
+            position: relative;
+            overflow: visible;
+        }
+        .xxxxxxxxxxxxxxxxx {
+            color: #000000;
+            text-align: left;
+            font: 300 15px/100% "Montserrat", sans-serif;
+            position: relative;
+            width: 160px;
+        }
+        .proyecto {
+            color: #000000;
+            text-align: left;
+            font: 300 15px/100% "Montserrat", sans-serif;
+            position: relative;
+            width: 80px;
+        }
+        .frame-8 {
+            border-radius: 10px;
+            padding: 0px 10px 0px 10px;
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            flex-shrink: 0;
+            width: 96px;
+            height: 48px;
+            position: relative;
+            overflow: hidden;
+        }
+        .icon-checkmark-circle {
+            flex-shrink: 0;
+            position: relative;
+            overflow: visible;
+        }
+        .vector14 {
+            flex-shrink: 0;
+            position: relative;
+            overflow: visible;
+        }
+        .vector15 {
+            flex-shrink: 0;
+            position: relative;
+            overflow: visible;
+        }
+        .pendiente {
+            color: #000000;
+            text-align: left;
+            font: 300 15px/100% "Montserrat", sans-serif;
+            position: relative;
+        }
+        .frame-40 {
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+            align-items: flex-start;
+            justify-content: flex-start;
+            flex-shrink: 0;
+            position: relative;
+        }
+        .frame-9 {
+            background: rgba(37, 44, 97, 0.15);
+            border-radius: 10px;
+            padding: 0px 10px 0px 10px;
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            height: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+        .equipo {
+            color: rgba(0, 0, 0, 0.29);
+            text-align: left;
+            font: 600 14px/100% "Montserrat", sans-serif;
+            position: relative;
+        }
+        .frame-12 {
+            background: rgba(37, 44, 97, 0.15);
+            border-radius: 10px;
+            padding: 0px 10px 0px 10px;
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            height: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+        .informe {
+            color: rgba(0, 0, 0, 0.29);
+            text-align: left;
+            font: 600 14px/100% "Montserrat", sans-serif;
+            position: relative;
+        }
+        .frame-13 {
+            background: rgba(37, 44, 97, 0.15);
+            border-radius: 10px;
+            padding: 0px 10px 0px 10px;
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            height: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+        .asistencia-a-beneficiarios {
+            color: rgba(0, 0, 0, 0.29);
+            text-align: left;
+            font: 600 14px/100% "Montserrat", sans-serif;
+            position: relative;
+        }
+        .frame-65 {
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            position: relative;
+        }
+        .frame-16 {
+            background: rgba(37, 44, 97, 0.15);
+            border-radius: 10px;
+            padding: 0px 10px 0px 10px;
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            height: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+        .ver {
+            color: rgba(0, 0, 0, 0.29);
+            text-align: left;
+            font: 600 14px/100% "Montserrat", sans-serif;
+            position: relative;
+        }
+        .frame-652 {
+            background: rgba(37, 44, 97, 0.15);
+            border-radius: 10px;
+            padding: 0px 10px 0px 10px;
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            height: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+        .editar {
+            color: rgba(0, 0, 0, 0.29);
+            text-align: left;
+            font: 600 14px/100% "Montserrat", sans-serif;
+            position: relative;
+        }
+        .frame-17 {
+            background: rgba(37, 44, 97, 0.15);
+            border-radius: 10px;
+            padding: 0px 10px 0px 10px;
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            height: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+        .eliminar {
+            color: rgba(0, 0, 0, 0.29);
+            text-align: left;
+            font: 600 14px/100% "Montserrat", sans-serif;
+            position: relative;
+        }
+        .clipboard-outline {
+            flex-shrink: 0;
+            position: relative;
+            overflow: visible;
+        }
+        .programa {
+            color: #000000;
+            text-align: left;
+            font: 300 15px/100% "Montserrat", sans-serif;
+            position: relative;
+            width: 81px;
+        }
+        .frame-132 {
+            border-radius: 10px;
+            padding: 0px 10px 0px 10px;
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            flex-shrink: 0;
+            width: 96px;
+            height: 48px;
+            position: relative;
+            overflow: hidden;
+        }
+        .icon-checkmark-circle2 {
+            flex-shrink: 0;
+            position: relative;
+            overflow: visible;
+        }
+        .icon-checkmark-circle3 {
+            flex-shrink: 0;
+            position: relative;
+            overflow: visible;
+        }
+        .icon-checkmark-circle4 {
+            flex-shrink: 0;
+            position: relative;
+            overflow: visible;
+        }
+        .aprobado {
+            color: #000000;
+            text-align: left;
+            font: 300 15px/100% "Montserrat", sans-serif;
+            position: relative;
+        }
+        .frame-66 {
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+            align-items: flex-start;
+            justify-content: flex-start;
+            flex-shrink: 0;
+            position: relative;
+        }
+        .frame-662 {
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            position: relative;
+        }
+        .scrollbar-frame {
+            flex-shrink: 0;
+            width: 11px;
+            position: absolute;
+            right: 0px;
+            bottom: 0px;
+            top: 0px;
+            overflow: hidden;
+        }
+
+    </style>
+</head>
+<body>
+<div class="revisar-perfil">
+    <div class="group-3">
+        <div class="navbar">
+            <div class="home">
+                <svg
+                        class="home2"
+                        width="40"
+                        height="41"
+                        viewBox="0 0 40 41"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                            d="M20.4344 8.41262C20.3181 8.30136 20.1633 8.23926 20.0023 8.23926C19.8414 8.23926 19.6866 8.30136 19.5703 8.41262L5.1875 22.1525C5.12642 22.2109 5.07782 22.2811 5.04466 22.3589C5.01149 22.4366 4.99444 22.5203 4.99453 22.6048L4.99219 35.5001C4.99219 36.1632 5.25558 36.799 5.72442 37.2679C6.19326 37.7367 6.82915 38.0001 7.49219 38.0001H15C15.3315 38.0001 15.6495 37.8684 15.8839 37.634C16.1183 37.3996 16.25 37.0816 16.25 36.7501V26.1251C16.25 25.9594 16.3158 25.8004 16.4331 25.6832C16.5503 25.566 16.7092 25.5001 16.875 25.5001H23.125C23.2908 25.5001 23.4497 25.566 23.5669 25.6832C23.6842 25.8004 23.75 25.9594 23.75 26.1251V36.7501C23.75 37.0816 23.8817 37.3996 24.1161 37.634C24.3505 37.8684 24.6685 38.0001 25 38.0001H32.5047C33.1677 38.0001 33.8036 37.7367 34.2725 37.2679C34.7413 36.799 35.0047 36.1632 35.0047 35.5001V22.6048C35.0048 22.5203 34.9877 22.4366 34.9546 22.3589C34.9214 22.2811 34.8728 22.2109 34.8117 22.1525L20.4344 8.41262Z"
+                            fill="#013966"
+                    />
+                    <path
+                            d="M38.3524 19.5742L32.5086 13.9836V5.5C32.5086 5.16848 32.3769 4.85054 32.1425 4.61612C31.9081 4.3817 31.5901 4.25 31.2586 4.25H27.5086C27.1771 4.25 26.8592 4.3817 26.6247 4.61612C26.3903 4.85054 26.2586 5.16848 26.2586 5.5V8L21.7336 3.67344C21.3102 3.24531 20.6805 3 20 3C19.3219 3 18.6938 3.24531 18.2703 3.67422L1.65315 19.5727C1.16722 20.0414 1.10628 20.8125 1.54847 21.3203C1.65951 21.4485 1.79547 21.5527 1.94808 21.6267C2.10068 21.7007 2.26675 21.7428 2.43616 21.7506C2.60557 21.7583 2.77478 21.7315 2.9335 21.6718C3.09222 21.612 3.23713 21.5206 3.3594 21.4031L19.5703 5.9125C19.6867 5.80124 19.8414 5.73914 20.0024 5.73914C20.1633 5.73914 20.3181 5.80124 20.4344 5.9125L36.6469 21.4031C36.8857 21.6321 37.2056 21.7571 37.5364 21.7507C37.8673 21.7442 38.182 21.6069 38.4118 21.3688C38.8914 20.8719 38.8516 20.0516 38.3524 19.5742Z"
+                            fill="#013966"
+                    />
+                </svg>
+            </div>
+
+            <div class="frame-3">
+                <div class="proyectos-y-programas">PROYECTOS<br />Y PROGRAMAS</div>
+            </div>
+
+            <div class="frame-5">
+
+                <a th:href="reporte" >
+                    <div class="reporte">REPORTE</div>
+                </a>
+            </div>
+        </div>
+
+        <div class="head">
+            <div class="logo">
+                <img
+                        class="logo-upeu-2022-dark-mesa-de-trabajo-1-980-x-236-1"
+                        src="logo-upeu-2022-dark-mesa-de-trabajo-1-980-x-236-1.png"
+                />
+            </div>
+
+            <div class="session">
+                <svg
+                        class="icon-person"
+                        width="30"
+                        height="35"
+                        viewBox="0 0 30 35"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                            d="M24.375 17.5C27.4816 17.5 30 19.8505 30 22.75C30 26.6563 28.2789 29.7859 25.4544 31.9018C22.6747 33.9843 18.949 35 15 35C11.051 35 7.32533 33.9843 4.54556 31.9018C1.72114 29.7859 0 26.6563 0 22.75C0 20.0212 2.23079 17.7784 5.0832 17.524L5.62492 17.5H24.375ZM15 0C19.1421 0 22.5 3.134 22.5 7C22.5 10.866 19.1421 14 15 14C10.8579 14 7.5 10.866 7.5 7C7.5 3.134 10.8579 0 15 0Z"
+                            fill="#063664"
+                    />
+                </svg>
+            </div>
+        </div>
+
+        <div class="body">
+            <div class="frame-36">
+                <div class="component-1">
+                    <div class="button-crear">
+                        <svg
+                                class="add-outline"
+                                width="21"
+                                height="20"
+                                viewBox="0 0 21 20"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                    d="M10.5 4.375V15.625M16.125 10H4.875"
+                                    stroke="white"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                            />
+                        </svg>
+
+                        <div class="crear"><a th:href="editarMostar">NUEVO</a></div>
+
+                        <svg
+                                class="chebron-abajo"
+                                width="21"
+                                height="20"
+                                viewBox="0 0 21 20"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                    d="M4.875 7.1875L10.5 12.8125L16.125 7.1875"
+                                    stroke="white"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                            />
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="frame-2">
+                    <div class="frame-7">
+                        <svg
+                                class="filter"
+                                width="21"
+                                height="20"
+                                viewBox="0 0 21 20"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <g clip-path="url(#clip0_136_57)">
+                                <path
+                                        d="M19.3125 6.5625H2.4375C2.18886 6.5625 1.9504 6.46373 1.77459 6.28791C1.59877 6.1121 1.5 5.87364 1.5 5.625C1.5 5.37636 1.59877 5.1379 1.77459 4.96209C1.9504 4.78627 2.18886 4.6875 2.4375 4.6875H19.3125C19.5611 4.6875 19.7996 4.78627 19.9754 4.96209C20.1512 5.1379 20.25 5.37636 20.25 5.625C20.25 5.87364 20.1512 6.1121 19.9754 6.28791C19.7996 6.46373 19.5611 6.5625 19.3125 6.5625ZM16.1875 10.9375H5.5625C5.31386 10.9375 5.0754 10.8387 4.89959 10.6629C4.72377 10.4871 4.625 10.2486 4.625 10C4.625 9.75136 4.72377 9.5129 4.89959 9.33709C5.0754 9.16127 5.31386 9.0625 5.5625 9.0625H16.1875C16.4361 9.0625 16.6746 9.16127 16.8504 9.33709C17.0262 9.5129 17.125 9.75136 17.125 10C17.125 10.2486 17.0262 10.4871 16.8504 10.6629C16.6746 10.8387 16.4361 10.9375 16.1875 10.9375ZM12.4375 15.3125H9.3125C9.06386 15.3125 8.8254 15.2137 8.64959 15.0379C8.47377 14.8621 8.375 14.6236 8.375 14.375C8.375 14.1264 8.47377 13.8879 8.64959 13.7121C8.8254 13.5363 9.06386 13.4375 9.3125 13.4375H12.4375C12.6861 13.4375 12.9246 13.5363 13.1004 13.7121C13.2762 13.8879 13.375 14.1264 13.375 14.375C13.375 14.6236 13.2762 14.8621 13.1004 15.0379C12.9246 15.2137 12.6861 15.3125 12.4375 15.3125Z"
+                                        fill="black"
+                                        fill-opacity="0.29"
+                                />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_136_57">
+                                    <rect
+                                            width="20"
+                                            height="20"
+                                            fill="white"
+                                            transform="translate(0.875)"
+                                    />
+                                </clipPath>
+                            </defs>
+                        </svg>
+
+                        <div class="organizar">Organizar</div>
+
+                        <svg
+                                class="vector7"
+                                width="13"
+                                height="6"
+                                viewBox="0 0 13 6"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                    d="M0.875 0.1875L6.5 5.8125L12.125 0.1875"
+                                    stroke="black"
+                                    stroke-opacity="0.29"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                            />
+                        </svg>
+                    </div>
+
+                    <div class="frame-52">
+                        <svg
+                                class="search-sharp"
+                                width="20"
+                                height="20"
+                                viewBox="0 0 20 20"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                    d="M18.125 16.7188L13.2781 11.8711C14.0592 10.7977 14.4794 9.50407 14.4781 8.17656C14.4781 4.70195 11.6512 1.875 8.17656 1.875C4.70195 1.875 1.875 4.70195 1.875 8.17656C1.875 11.6512 4.70195 14.4781 8.17656 14.4781C9.50407 14.4794 10.7977 14.0592 11.8711 13.2781L16.7188 18.125L18.125 16.7188ZM8.17656 12.4879C7.32375 12.488 6.49007 12.2351 5.78095 11.7614C5.07183 11.2877 4.51913 10.6143 4.19274 9.82638C3.86635 9.0385 3.78093 8.17152 3.94728 7.33509C4.11364 6.49866 4.5243 5.73035 5.12733 5.12733C5.73035 4.5243 6.49866 4.11364 7.33509 3.94728C8.17152 3.78093 9.0385 3.86635 9.82638 4.19274C10.6143 4.51913 11.2877 5.07183 11.7614 5.78095C12.2351 6.49007 12.488 7.32375 12.4879 8.17656C12.4865 9.31959 12.0319 10.4154 11.2236 11.2236C10.4154 12.0319 9.31959 12.4865 8.17656 12.4879Z"
+                                    fill="#013966"
+                                    fill-opacity="0.6"
+                            />
+                        </svg>
+
+                        <div class="b-squeda">Búsqueda</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contenido">
+                <div class="h-1">
+                    <div class="mi-portafolio">MI PORTAFOLIO</div>
+                </div>
+
+                <div class="table-responsive">
+                    <table
+                            class="table table-responsive table-sm table-dark table-striped table-bordered table-hover" >
+                        <thead>
+                        <tr class="info">
+                            <th>#</th>
+                            <th>NOMBRE</th>
+                            <th>TIPO</th>
+                            <th>ESTADO</th>
+                             <th style="width: 26px"></th>
+                            <th style="width: 26px">OPCIONES</th>
+                            <th style="width: 26px"></th>
+                            <th style="width: 26px"></th>
+                            <th style="width: 26px">RETIRAR</th>
+                            <th style="width: 26px">EDITAR</th>
+
+
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="usuario, it : ${lista}">
+                            <td th:text="${it.index}">1</td>
+                            <td th:text="${usuario.getUsuario()}">Usuario</td>
+                            <td th:text="${usuario.getClave()}">Clave</td>
+                            <td th:text="${usuario.getNombreCompleto()}">Nombre Completo</td>
+                            <td><a th:href="@{alumnoRegistro}" class="btn btn-success">Equipo</a></td>
+                            <td><a href="#" class="btn btn-success">Imforme</a></td>
+                            <td><a th:href="@{registrarA}" class="btn btn-success">Asistencia a beneficiarios</a></td>
+                            <td><a th:href="@{aprobar}" class="btn btn-success">Ver</a></td>
+                            <td>
+                                <a class="btn btn-success" th:href="@{'eliminar?codigoUsuario='+${usuario.getUsuario()}}"  >eliminar</a>
+                            </td>
+                            <td>
+                                <a class="btn btn-success" th:href="@{editarMostar}"  >editar</a>
+                            </td>
+
+
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+
+                <div class="scrollbar-frame"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

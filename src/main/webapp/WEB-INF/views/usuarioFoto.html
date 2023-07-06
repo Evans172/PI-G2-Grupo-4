@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<style type="text/css">
+.formFieldError {
+	background-color: #FFC;
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<div>
+
+			<h1>Foto del usuario</h1>
+			<div class="col-md-6 col-xs-12 div-style">
+
+				<form action="usuarioFotoGrabar" method="POST" enctype="multipart/form-data">
+
+					<table>
+						<tr th:if="${usuario.getFotoBase64()!=null}">
+							<td colspan="2" ><img th:src="|data:image/jspeg;base64,${usuario.getFotoBase64()}|"></td>
+						</tr>
+					
+						<tr>
+							<td>Seleccion de foto:</td>
+							<td><input type="file"  id="foto" name= "foto"/></td>
+						</tr>
+						
+						<tr>
+							<td colspan="2"><input type="submit"  value="Subir foto"></td>
+						</tr>
+					</table>
+					
+					<input type="hidden" name="codigoUsuario" th:value="${usuario.getUsuario()}" />
+
+				</form>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

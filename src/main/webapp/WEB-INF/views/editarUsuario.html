@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<body>
+
+<form action="editar" method="POST" th:object="${usuarioBean}">
+
+    <table>
+        <tr>
+            <td>Usuario:</td>
+            <td><input type="text" th:field="*{usuario}" id="usuario"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Clave:</td>
+            <td><input type="text" th:field="*{clave}" id="clave"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Nombre completo:</td>
+            <td><input type="text" th:field="*{nombreCompleto}"
+                       id="nombreCompleto"></td>
+            <td></td>
+        </tr>
+
+        <tr>
+
+            <td colspan="3"><input type="submit" value="Guardar" /></td>
+        </tr>
+
+    </table>
+
+
+</form>
+<a th:href="@{index}">Regresar</a>
+</body>
+</html>

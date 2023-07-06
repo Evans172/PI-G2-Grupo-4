@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="ReporteH Styles.css">
+
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .reporte-de-horas,
+    .reporte-de-horas * {
+      box-sizing: border-box;
+    }
+    .reporte-de-horas {
+      background: #ffffff;
+      width: 1728px;
+      height: 1117px;
+      position: relative;
+      overflow: hidden;
+    }
+    .group-3 {
+      position: absolute;
+      inset: 0;
+    }
+    .navbar {
+      background: rgba(37, 44, 97, 0.15);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      justify-content: flex-start;
+      width: 300px;
+      height: 1117px;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      overflow: hidden;
+    }
+    .home {
+      border-radius: 2px;
+      border-style: solid;
+      border-color: #013968;
+      border-width: 0px 0px 2px 0px;
+      padding: 20px 115px 20px 115px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 225px;
+      height: 57px;
+      position: relative;
+      overflow: hidden;
+    }
+    .home2 {
+      flex-shrink: 0;
+      position: relative;
+      overflow: visible;
+    }
+    .frame-3 {
+      background: rgba(37, 44, 97, 0.15);
+      border-radius: 10px;
+      flex-shrink: 0;
+      width: 225px;
+      height: 57px;
+      position: relative;
+      overflow: hidden;
+    }
+    .proyectos-y-programas {
+      color: #000000;
+      text-align: center;
+      font: 600 14px/100% "Montserrat", sans-serif;
+      position: absolute;
+      left: calc(50% - 55.5px);
+      top: calc(50% - 14.5px);
+    }
+    .frame-5 {
+      background: rgba(37, 44, 97, 0.8);
+      border-radius: 10px;
+      flex-shrink: 0;
+      width: 225px;
+      height: 57px;
+      position: relative;
+      overflow: hidden;
+    }
+    .reporte {
+      color: #ffffff;
+      text-align: center;
+      font: 600 14px/100% "Montserrat", sans-serif;
+      position: absolute;
+      left: calc(50% - 35.5px);
+      top: calc(50% - 7.5px);
+    }
+    .head {
+      background: rgba(37, 44, 97, 0.08);
+      padding: 10px 20px 10px 20px;
+      display: flex;
+      flex-direction: row;
+      gap: 324px;
+      align-items: flex-start;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      width: 1428px;
+      height: 77px;
+      position: absolute;
+      left: 300px;
+      top: 0px;
+      overflow: hidden;
+    }
+    .logo {
+      flex-shrink: 0;
+      width: 201px;
+      height: 55px;
+      position: relative;
+      overflow: hidden;
+    }
+    .logo-upeu-2022-dark-mesa-de-trabajo-1-980-x-236-1 {
+      width: 174px;
+      height: 43px;
+      position: absolute;
+      left: 14px;
+      top: 6px;
+    }
+    .session {
+      background: rgba(37, 44, 97, 0.15);
+      border-radius: 15px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .icon-person {
+      flex-shrink: 0;
+      position: relative;
+      overflow: visible;
+    }
+    .frame-51 {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      align-items: flex-start;
+      justify-content: flex-start;
+      width: 1428px;
+      height: 1040px;
+      position: absolute;
+      left: 300px;
+      top: 77px;
+      overflow: hidden;
+    }
+    .frame-36 {
+      border-style: solid;
+      border-color: rgba(37, 44, 97, 0.15);
+      border-width: 0px 0px 1px 0px;
+      padding: 20px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-self: stretch;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .frame-23 {
+      padding: 20px 0px 20px 0px;
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      align-items: center;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      flex-shrink: 0;
+      width: 1002px;
+      position: relative;
+      overflow: hidden;
+    }
+    .frame-27 {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      align-items: center;
+      justify-content: flex-start;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .facultad {
+      color: #000000;
+      text-align: left;
+      font: 400 20px/100% "Montserrat", sans-serif;
+      position: relative;
+    }
+    .frame-17 {
+      border-radius: 10px;
+      padding: 15px 10px 15px 10px;
+      display: flex;
+      flex-direction: row;
+      gap: 110px;
+      align-items: center;
+      justify-content: flex-end;
+      flex-shrink: 0;
+      position: relative;
+      overflow: visible;
+    }
+    .frame-41 {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      align-items: center;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .frame-29 {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      align-items: center;
+      justify-content: flex-start;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .e-p {
+      color: #000000;
+      text-align: left;
+      font: 400 20px/100% "Montserrat", sans-serif;
+      position: relative;
+    }
+    .frame-18 {
+      border-radius: 10px;
+      padding: 15px 10px 15px 10px;
+      display: flex;
+      flex-direction: row;
+      gap: 110px;
+      align-items: center;
+      justify-content: flex-end;
+      flex-shrink: 0;
+      position: relative;
+      overflow: visible;
+    }
+    .frame-28 {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      align-items: center;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .ciclo {
+      color: #000000;
+      text-align: left;
+      font: 400 20px/100% "Montserrat", sans-serif;
+      position: relative;
+    }
+    .frame-16 {
+      border-radius: 10px;
+      padding: 15px 10px 15px 10px;
+      display: flex;
+      flex-direction: row;
+      gap: 110px;
+      align-items: center;
+      justify-content: flex-end;
+      flex-shrink: 0;
+      position: relative;
+      overflow: visible;
+    }
+    .frame-42 {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      align-items: center;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .grupo {
+      color: #000000;
+      text-align: left;
+      font: 400 20px/100% "Montserrat", sans-serif;
+      position: relative;
+    }
+    .frame-30 {
+      border-radius: 10px;
+      padding: 15px 10px 15px 10px;
+      display: flex;
+      flex-direction: row;
+      gap: 110px;
+      align-items: center;
+      justify-content: flex-end;
+      flex-shrink: 0;
+      position: relative;
+      overflow: visible;
+    }
+    .frame-2 {
+      background: rgba(37, 44, 97, 0.15);
+      border-radius: 5px;
+      padding: 11px 14px 11px 14px;
+      display: flex;
+      flex-direction: row;
+      gap: 24px;
+      align-items: flex-start;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .frame-7 {
+      background: rgba(37, 44, 97, 0.15);
+      border-radius: 10px;
+      padding: 0px 3px 0px 3px;
+      display: flex;
+      flex-direction: row;
+      gap: 5px;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 147px;
+      height: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+    .filter {
+      flex-shrink: 0;
+      position: relative;
+      overflow: visible;
+    }
+    .organizar {
+      color: rgba(0, 0, 0, 0.29);
+      text-align: left;
+      font: 600 14px/100% "Montserrat", sans-serif;
+      position: relative;
+    }
+    .vector5 {
+      flex-shrink: 0;
+      position: relative;
+      overflow: visible;
+    }
+    .frame-52 {
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 0px 3px 0px 3px;
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      height: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+    .search-sharp {
+      flex-shrink: 0;
+      position: relative;
+      overflow: visible;
+    }
+    .b-scar-c-digo {
+      color: rgba(0, 0, 0, 0.29);
+      text-align: left;
+      font: 600 14px/100% "Montserrat", sans-serif;
+      position: relative;
+    }
+    .frame-64 {
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 1388px;
+      position: relative;
+      overflow: hidden;
+    }
+    .lista {
+      border-radius: 10px;
+      border-style: solid;
+      border-color: rgba(37, 44, 97, 0.15);
+      border-width: 1px;
+      display: flex;
+      flex-direction: column;
+      gap: 0px;
+      align-items: flex-start;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .lista-encabezado {
+      background: rgba(255, 255, 255, 0.15);
+      border-style: solid;
+      border-color: rgba(37, 44, 97, 0.15);
+      border-width: 0px 0px 2px 0px;
+      padding: 20px 30px 20px 30px;
+      display: flex;
+      flex-direction: row;
+      gap: 50px;
+      align-items: flex-start;
+      justify-content: flex-start;
+      align-self: stretch;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    . {
+      color: #000000;
+      text-align: left;
+      font: 300 15px/100% "Montserrat", sans-serif;
+      position: relative;
+      width: 22px;
+    }
+    .codigo {
+      color: #000000;
+      text-align: left;
+      font: 300 15px/100% "Montserrat", sans-serif;
+      position: relative;
+      width: 70px;
+    }
+    .nombre {
+      color: #000000;
+      text-align: left;
+      font: 300 15px/100% "Montserrat", sans-serif;
+      position: relative;
+      width: 150px;
+    }
+    .horas-registradas {
+      color: #000000;
+      text-align: center;
+      font: 300 15px/100% "Montserrat", sans-serif;
+      position: relative;
+      width: 150px;
+    }
+    .horas-restantes {
+      color: #000000;
+      text-align: center;
+      font: 300 15px/100% "Montserrat", sans-serif;
+      position: relative;
+      width: 150px;
+    }
+    .calificaci-n {
+      color: #000000;
+      text-align: center;
+      font: 300 15px/100% "Montserrat", sans-serif;
+      position: relative;
+      width: 150px;
+    }
+    .lista-cuerpo {
+      background: rgba(255, 255, 255, 0.15);
+      border-style: solid;
+      border-color: rgba(37, 44, 97, 0.15);
+      border-width: 0px 0px 1px 0px;
+      padding: 20px 30px 20px 30px;
+      display: flex;
+      flex-direction: row;
+      gap: 50px;
+      align-items: center;
+      justify-content: flex-start;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    ._1 {
+      color: #000000;
+      text-align: center;
+      font: 300 15px/100% "Montserrat", sans-serif;
+      position: relative;
+      width: 22px;
+    }
+    ._9999999 {
+      color: #000000;
+      text-align: left;
+      font: 300 15px/100% "Montserrat", sans-serif;
+      position: relative;
+      width: 70px;
+    }
+    .xxxxxxxxxxxxxxxxxxxxxxxxxx {
+      color: #000000;
+      text-align: left;
+      font: 300 15px/100% "Montserrat", sans-serif;
+      position: relative;
+      width: 150px;
+    }
+    ._15 {
+      color: #000000;
+      text-align: center;
+      font: 300 15px/100% "Montserrat", sans-serif;
+      position: relative;
+      width: 150px;
+    }
+    ._20 {
+      color: #000000;
+      text-align: center;
+      font: 300 15px/100% "Montserrat", sans-serif;
+      position: relative;
+      width: 150px;
+    }
+    ._17 {
+      color: #000000;
+      text-align: center;
+      font: 300 15px/100% "Montserrat", sans-serif;
+      position: relative;
+      width: 150px;
+    }
+    ._14 {
+      color: #000000;
+      text-align: center;
+      font: 300 15px/100% "Montserrat", sans-serif;
+      position: relative;
+      width: 150px;
+    }
+    .lista-cuerpo2 {
+      background: rgba(255, 255, 255, 0.15);
+      border-style: solid;
+      border-color: rgba(37, 44, 97, 0.15);
+      border-width: 0px 0px 1px 0px;
+      padding: 20px 30px 20px 30px;
+      display: flex;
+      flex-direction: row;
+      gap: 50px;
+      align-items: center;
+      justify-content: flex-start;
+      align-self: stretch;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    ._2 {
+      color: #000000;
+      text-align: center;
+      font: 300 15px/100% "Montserrat", sans-serif;
+      position: relative;
+      width: 22px;
+    }
+    ._13 {
+      color: #000000;
+      text-align: center;
+      font: 300 15px/100% "Montserrat", sans-serif;
+      position: relative;
+      width: 150px;
+    }
+    .frame-412 {
+      padding: 20px 50px 20px 50px;
+      display: flex;
+      flex-direction: row;
+      gap: 0px;
+      align-items: center;
+      justify-content: center;
+      align-self: stretch;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .frame-44 {
+      background: #37c420;
+      border-radius: 10px 0px 0px 10px;
+      padding: 9px 8px 9px 8px;
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .descargar-archivo {
+      color: #ffffff;
+      text-align: left;
+      font: 400 10px/100% "Montserrat", sans-serif;
+      position: relative;
+    }
+    .frame-45 {
+      background: rgba(37, 44, 97, 0.15);
+      border-radius: 0px 10px 10px 0px;
+      padding: 4px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      flex: 1;
+      position: relative;
+    }
+    .xxxxxxxxxxxxxx-pdf {
+      color: #000000;
+      text-align: left;
+      font: 400 10px/100% "Montserrat", sans-serif;
+      position: relative;
+    }
+    .frame-50 {
+      background: rgba(21, 41, 226, 0.51);
+      border-radius: 5px;
+      padding: 5px;
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .ver-archivo {
+      color: #ffffff;
+      text-align: left;
+      font: 300 10px/100% "Montserrat", sans-serif;
+      position: relative;
+    }
+
+  </style>
+</head>
+<body>
+    <div class="reporte-de-horas">
+        <div class="group-3">
+          <div class="navbar">
+            <div class="home">
+              <svg
+                class="home2"
+                width="40"
+                height="41"
+                viewBox="0 0 40 41"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20.4344 8.41262C20.3181 8.30136 20.1633 8.23926 20.0023 8.23926C19.8414 8.23926 19.6866 8.30136 19.5703 8.41262L5.1875 22.1525C5.12642 22.2109 5.07782 22.2811 5.04466 22.3589C5.01149 22.4366 4.99444 22.5203 4.99453 22.6048L4.99219 35.5001C4.99219 36.1632 5.25558 36.799 5.72442 37.2679C6.19326 37.7367 6.82915 38.0001 7.49219 38.0001H15C15.3315 38.0001 15.6495 37.8684 15.8839 37.634C16.1183 37.3996 16.25 37.0816 16.25 36.7501V26.1251C16.25 25.9594 16.3158 25.8004 16.4331 25.6832C16.5503 25.566 16.7092 25.5001 16.875 25.5001H23.125C23.2908 25.5001 23.4497 25.566 23.5669 25.6832C23.6842 25.8004 23.75 25.9594 23.75 26.1251V36.7501C23.75 37.0816 23.8817 37.3996 24.1161 37.634C24.3505 37.8684 24.6685 38.0001 25 38.0001H32.5047C33.1677 38.0001 33.8036 37.7367 34.2725 37.2679C34.7413 36.799 35.0047 36.1632 35.0047 35.5001V22.6048C35.0048 22.5203 34.9877 22.4366 34.9546 22.3589C34.9214 22.2811 34.8728 22.2109 34.8117 22.1525L20.4344 8.41262Z"
+                  fill="#013966"
+                />
+                <path
+                  d="M38.3524 19.5742L32.5086 13.9836V5.5C32.5086 5.16848 32.3769 4.85054 32.1425 4.61612C31.9081 4.3817 31.5901 4.25 31.2586 4.25H27.5086C27.1771 4.25 26.8592 4.3817 26.6247 4.61612C26.3903 4.85054 26.2586 5.16848 26.2586 5.5V8L21.7336 3.67344C21.3102 3.24531 20.6805 3 20 3C19.3219 3 18.6938 3.24531 18.2703 3.67422L1.65315 19.5727C1.16722 20.0414 1.10628 20.8125 1.54847 21.3203C1.65951 21.4485 1.79547 21.5527 1.94808 21.6267C2.10068 21.7007 2.26675 21.7428 2.43616 21.7506C2.60557 21.7583 2.77478 21.7315 2.9335 21.6718C3.09222 21.612 3.23713 21.5206 3.3594 21.4031L19.5703 5.9125C19.6867 5.80124 19.8414 5.73914 20.0024 5.73914C20.1633 5.73914 20.3181 5.80124 20.4344 5.9125L36.6469 21.4031C36.8857 21.6321 37.2056 21.7571 37.5364 21.7507C37.8673 21.7442 38.182 21.6069 38.4118 21.3688C38.8914 20.8719 38.8516 20.0516 38.3524 19.5742Z"
+                  fill="#013966"
+                />
+              </svg>
+            </div>
+      
+            <div class="frame-3">
+              <a th:href="proyectos">
+              <div class="proyectos-y-programas">PROYECTOS<br />Y PROGRAMAS</div>
+            </a>
+            </div>
+      
+            <div class="frame-5">
+              <div class="reporte">REPORTE</div>
+            </div>
+          </div>
+      
+          <div class="head">
+            <div class="logo">
+              <img
+                class="logo-upeu-2022-dark-mesa-de-trabajo-1-980-x-236-1"
+                src="logo-upeu-2022-dark-mesa-de-trabajo-1-980-x-236-1.png"
+              />
+            </div>
+      
+            <div class="session">
+              <svg
+                class="icon-person"
+                width="30"
+                height="35"
+                viewBox="0 0 30 35"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M24.375 17.5C27.4816 17.5 30 19.8505 30 22.75C30 26.6563 28.2789 29.7859 25.4544 31.9018C22.6747 33.9843 18.949 35 15 35C11.051 35 7.32533 33.9843 4.54556 31.9018C1.72114 29.7859 0 26.6563 0 22.75C0 20.0212 2.23079 17.7784 5.0832 17.524L5.62492 17.5H24.375ZM15 0C19.1421 0 22.5 3.134 22.5 7C22.5 10.866 19.1421 14 15 14C10.8579 14 7.5 10.866 7.5 7C7.5 3.134 10.8579 0 15 0Z"
+                  fill="#063664"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      
+        <div class="frame-51">
+          <div class="frame-36">
+            <div class="frame-23">
+              <div class="frame-27">
+                <div class="facultad">Facultad:</div>
+      
+                <svg
+                  class="frame-17"
+                  width="200"
+                  height="38"
+                  viewBox="0 0 200 38"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect width="200" height="37.125" rx="10" fill="white" />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M177.47 15.2197C177.763 14.9268 178.237 14.9268 178.53 15.2197L183.625 20.3143L188.72 15.2197C189.013 14.9268 189.487 14.9268 189.78 15.2197C190.073 15.5126 190.073 15.9874 189.78 16.2803L184.155 21.9053C183.862 22.1982 183.388 22.1982 183.095 21.9053L177.47 16.2803C177.177 15.9874 177.177 15.5126 177.47 15.2197Z"
+                    fill="#252C61"
+                    fill-opacity="0.15"
+                  />
+                  <rect
+                    x="0.5"
+                    y="0.5"
+                    width="199"
+                    height="36.125"
+                    rx="9.5"
+                    stroke="#252C61"
+                    stroke-opacity="0.15"
+                  />
+                </svg>
+              </div>
+      
+              <div class="frame-41">
+                <div class="frame-29">
+                  <div class="e-p">E.P.</div>
+                </div>
+      
+                <svg
+                  class="frame-18"
+                  width="200"
+                  height="38"
+                  viewBox="0 0 200 38"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect width="200" height="37.125" rx="10" fill="white" />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M177.47 15.2197C177.763 14.9268 178.237 14.9268 178.53 15.2197L183.625 20.3143L188.72 15.2197C189.013 14.9268 189.487 14.9268 189.78 15.2197C190.073 15.5126 190.073 15.9874 189.78 16.2803L184.155 21.9053C183.862 22.1982 183.388 22.1982 183.095 21.9053L177.47 16.2803C177.177 15.9874 177.177 15.5126 177.47 15.2197Z"
+                    fill="#252C61"
+                    fill-opacity="0.15"
+                  />
+                  <rect
+                    x="0.5"
+                    y="0.5"
+                    width="199"
+                    height="36.125"
+                    rx="9.5"
+                    stroke="#252C61"
+                    stroke-opacity="0.15"
+                  />
+                </svg>
+              </div>
+      
+              <div class="frame-28">
+                <div class="ciclo">Ciclo:</div>
+      
+                <svg
+                  class="frame-16"
+                  width="112"
+                  height="38"
+                  viewBox="0 0 112 38"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect width="112" height="37.125" rx="10" fill="white" />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M89.4697 15.2197C89.7626 14.9268 90.2374 14.9268 90.5303 15.2197L95.625 20.3143L100.72 15.2197C101.013 14.9268 101.487 14.9268 101.78 15.2197C102.073 15.5126 102.073 15.9874 101.78 16.2803L96.1553 21.9053C95.8624 22.1982 95.3876 22.1982 95.0947 21.9053L89.4697 16.2803C89.1768 15.9874 89.1768 15.5126 89.4697 15.2197Z"
+                    fill="#252C61"
+                    fill-opacity="0.15"
+                  />
+                  <rect
+                    x="0.5"
+                    y="0.5"
+                    width="111"
+                    height="36.125"
+                    rx="9.5"
+                    stroke="#252C61"
+                    stroke-opacity="0.15"
+                  />
+                </svg>
+              </div>
+      
+              <div class="frame-42">
+                <div class="grupo">Grupo:</div>
+      
+                <svg
+                  class="frame-30"
+                  width="112"
+                  height="38"
+                  viewBox="0 0 112 38"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect width="112" height="37.125" rx="10" fill="white" />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M89.4697 15.2197C89.7626 14.9268 90.2374 14.9268 90.5303 15.2197L95.625 20.3143L100.72 15.2197C101.013 14.9268 101.487 14.9268 101.78 15.2197C102.073 15.5126 102.073 15.9874 101.78 16.2803L96.1553 21.9053C95.8624 22.1982 95.3876 22.1982 95.0947 21.9053L89.4697 16.2803C89.1768 15.9874 89.1768 15.5126 89.4697 15.2197Z"
+                    fill="#252C61"
+                    fill-opacity="0.15"
+                  />
+                  <rect
+                    x="0.5"
+                    y="0.5"
+                    width="111"
+                    height="36.125"
+                    rx="9.5"
+                    stroke="#252C61"
+                    stroke-opacity="0.15"
+                  />
+                </svg>
+              </div>
+            </div>
+      
+            <div class="frame-2">
+              <div class="frame-7">
+                <svg
+                  class="filter"
+                  width="21"
+                  height="21"
+                  viewBox="0 0 21 21"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_201_165)">
+                    <path
+                      d="M19.3125 7.125H2.4375C2.18886 7.125 1.9504 7.02623 1.77459 6.85041C1.59877 6.6746 1.5 6.43614 1.5 6.1875C1.5 5.93886 1.59877 5.7004 1.77459 5.52459C1.9504 5.34877 2.18886 5.25 2.4375 5.25H19.3125C19.5611 5.25 19.7996 5.34877 19.9754 5.52459C20.1512 5.7004 20.25 5.93886 20.25 6.1875C20.25 6.43614 20.1512 6.6746 19.9754 6.85041C19.7996 7.02623 19.5611 7.125 19.3125 7.125ZM16.1875 11.5H5.5625C5.31386 11.5 5.0754 11.4012 4.89959 11.2254C4.72377 11.0496 4.625 10.8111 4.625 10.5625C4.625 10.3139 4.72377 10.0754 4.89959 9.89959C5.0754 9.72377 5.31386 9.625 5.5625 9.625H16.1875C16.4361 9.625 16.6746 9.72377 16.8504 9.89959C17.0262 10.0754 17.125 10.3139 17.125 10.5625C17.125 10.8111 17.0262 11.0496 16.8504 11.2254C16.6746 11.4012 16.4361 11.5 16.1875 11.5ZM12.4375 15.875H9.3125C9.06386 15.875 8.8254 15.7762 8.64959 15.6004C8.47377 15.4246 8.375 15.1861 8.375 14.9375C8.375 14.6889 8.47377 14.4504 8.64959 14.2746C8.8254 14.0988 9.06386 14 9.3125 14H12.4375C12.6861 14 12.9246 14.0988 13.1004 14.2746C13.2762 14.4504 13.375 14.6889 13.375 14.9375C13.375 15.1861 13.2762 15.4246 13.1004 15.6004C12.9246 15.7762 12.6861 15.875 12.4375 15.875Z"
+                      fill="black"
+                      fill-opacity="0.29"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_201_165">
+                      <rect
+                        width="20"
+                        height="20"
+                        fill="white"
+                        transform="translate(0.875 0.5625)"
+                      />
+                    </clipPath>
+                  </defs>
+                </svg>
+      
+                <div class="organizar">Organizar</div>
+      
+                <svg
+                  class="vector5"
+                  width="13"
+                  height="7"
+                  viewBox="0 0 13 7"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0.875 0.75L6.5 6.375L12.125 0.75"
+                    stroke="black"
+                    stroke-opacity="0.29"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+      
+              <div class="frame-52">
+                <svg
+                  class="search-sharp"
+                  width="20"
+                  height="21"
+                  viewBox="0 0 20 21"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M18.125 17.2812L13.2781 12.4336C14.0592 11.3602 14.4794 10.0666 14.4781 8.73906C14.4781 5.26445 11.6512 2.4375 8.17656 2.4375C4.70195 2.4375 1.875 5.26445 1.875 8.73906C1.875 12.2137 4.70195 15.0406 8.17656 15.0406C9.50407 15.0419 10.7977 14.6217 11.8711 13.8406L16.7188 18.6875L18.125 17.2812ZM8.17656 13.0504C7.32375 13.0505 6.49007 12.7976 5.78095 12.3239C5.07183 11.8502 4.51913 11.1768 4.19274 10.3889C3.86635 9.601 3.78093 8.73402 3.94728 7.89759C4.11364 7.06116 4.5243 6.29285 5.12733 5.68983C5.73035 5.0868 6.49866 4.67614 7.33509 4.50978C8.17152 4.34343 9.0385 4.42885 9.82638 4.75524C10.6143 5.08163 11.2877 5.63433 11.7614 6.34345C12.2351 7.05257 12.488 7.88625 12.4879 8.73906C12.4865 9.88209 12.0319 10.9779 11.2236 11.7861C10.4154 12.5944 9.31959 13.049 8.17656 13.0504Z"
+                    fill="#013966"
+                    fill-opacity="0.6"
+                  />
+                </svg>
+      
+                <div class="b-scar-c-digo">Búscar código</div>
+              </div>
+            </div>
+          </div>
+      
+          <div class="frame-64">
+            <div class="lista">
+              <div class="lista-encabezado">
+                <div class="">#</div>
+      
+                <div class="codigo">Codigo</div>
+      
+                <div class="nombre">Nombre</div>
+      
+                <div class="horas-registradas">Horas registradas</div>
+      
+                <div class="horas-restantes">Horas restantes</div>
+      
+                <div class="calificaci-n">Calificación</div>
+              </div>
+      
+              <div class="lista-cuerpo">
+                <div class="_1">1</div>
+      
+                <div class="_9999999">9999999</div>
+      
+                <div class="xxxxxxxxxxxxxxxxxxxxxxxxxx">
+                  XXXXXXXXXXXXXXXXXXXXXXXXXX
+                </div>
+      
+                <div class="_15">15</div>
+      
+                <div class="_20">20</div>
+      
+                <div class="_17">17</div>
+              </div>
+      
+              <div class="lista-cuerpo">
+                <div class="_1">1</div>
+      
+                <div class="_9999999">9999999</div>
+      
+                <div class="xxxxxxxxxxxxxxxxxxxxxxxxxx">
+                  XXXXXXXXXXXXXXXXXXXXXXXXXX
+                </div>
+      
+                <div class="_15">15</div>
+      
+                <div class="_20">20</div>
+      
+                <div class="_17">17</div>
+              </div>
+      
+              <div class="lista-cuerpo">
+                <div class="_1">1</div>
+      
+                <div class="_9999999">9999999</div>
+      
+                <div class="xxxxxxxxxxxxxxxxxxxxxxxxxx">
+                  XXXXXXXXXXXXXXXXXXXXXXXXXX
+                </div>
+      
+                <div class="_15">15</div>
+      
+                <div class="_20">20</div>
+      
+                <div class="_17">17</div>
+              </div>
+      
+              <div class="lista-cuerpo">
+                <div class="_1">1</div>
+      
+                <div class="_9999999">9999999</div>
+      
+                <div class="xxxxxxxxxxxxxxxxxxxxxxxxxx">
+                  XXXXXXXXXXXXXXXXXXXXXXXXXX
+                </div>
+      
+                <div class="_15">15</div>
+      
+                <div class="_20">20</div>
+      
+                <div class="_14">14</div>
+              </div>
+      
+              <div class="lista-cuerpo">
+                <div class="_1">1</div>
+      
+                <div class="_9999999">9999999</div>
+      
+                <div class="xxxxxxxxxxxxxxxxxxxxxxxxxx">
+                  XXXXXXXXXXXXXXXXXXXXXXXXXX
+                </div>
+      
+                <div class="_15">15</div>
+      
+                <div class="_20">20</div>
+      
+                <div class="_17">17</div>
+              </div>
+      
+              <div class="lista-cuerpo">
+                <div class="_1">1</div>
+      
+                <div class="_9999999">9999999</div>
+      
+                <div class="xxxxxxxxxxxxxxxxxxxxxxxxxx">
+                  XXXXXXXXXXXXXXXXXXXXXXXXXX
+                </div>
+      
+                <div class="_15">15</div>
+      
+                <div class="_20">20</div>
+      
+                <div class="_17">17</div>
+              </div>
+      
+              <div class="lista-cuerpo">
+                <div class="_1">1</div>
+      
+                <div class="_9999999">9999999</div>
+      
+                <div class="xxxxxxxxxxxxxxxxxxxxxxxxxx">
+                  XXXXXXXXXXXXXXXXXXXXXXXXXX
+                </div>
+      
+                <div class="_15">15</div>
+      
+                <div class="_20">20</div>
+      
+                <div class="_17">17</div>
+              </div>
+      
+              <div class="lista-cuerpo">
+                <div class="_1">1</div>
+      
+                <div class="_9999999">9999999</div>
+      
+                <div class="xxxxxxxxxxxxxxxxxxxxxxxxxx">
+                  XXXXXXXXXXXXXXXXXXXXXXXXXX
+                </div>
+      
+                <div class="_15">15</div>
+      
+                <div class="_20">20</div>
+      
+                <div class="_17">17</div>
+              </div>
+      
+              <div class="lista-cuerpo2">
+                <div class="_2">2</div>
+      
+                <div class="_9999999">9999999</div>
+      
+                <div class="xxxxxxxxxxxxxxxxxxxxxxxxxx">
+                  XXXXXXXXXXXXXXXXXXXXXXXXXX
+                </div>
+      
+                <div class="_15">15</div>
+      
+                <div class="_20">20</div>
+      
+                <div class="_13">13</div>
+              </div>
+      
+              <div class="lista-cuerpo2">
+                <div class="_2">2</div>
+      
+                <div class="_9999999">9999999</div>
+      
+                <div class="xxxxxxxxxxxxxxxxxxxxxxxxxx">
+                  XXXXXXXXXXXXXXXXXXXXXXXXXX
+                </div>
+      
+                <div class="_15">15</div>
+      
+                <div class="_20">20</div>
+      
+                <div class="_13">13</div>
+              </div>
+            </div>
+          </div>
+      
+          <div class="frame-412">
+            <div class="frame-44">
+              <div class="descargar-archivo">Descargar archivo</div>
+            </div>
+      
+            <div class="frame-45">
+              <div class="xxxxxxxxxxxxxx-pdf">XXXXXXXXXXXXXX.pdf</div>
+      
+              <div class="frame-50">
+                <div class="ver-archivo">Ver archivo</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+</body>
+</html>
